@@ -24,7 +24,10 @@ RBat[http://rubyist.g.hatena.ne.jp/edvakf/20110406/1302052515]を1.9系のRuby�
 1.9.1から $LOADED_FEATURES がすべてフルパスになったので, $LOAD_PATH と組み合わせる必要がなくなりました.
 http://doc.okkez.net/static/191/method/Kernel/m/require.html
 
-  "組み込み変数 $: に示されるパスを順番に探し、最初に見付かったファイルをロードします" ..
+  "組み込み変数 $: に示されるパスを順番に探し、最初に見付かったファイルをロードします"
+  .
+  .
+  .
   "ロードした feature の名前を(拡張子も含めて)変数 $" に追加します"
 
 だそうです.
