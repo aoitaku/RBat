@@ -5,7 +5,7 @@ See:: https://github.com/edvakf/RBat
 
 == これは何
 
-RBat[http://rubyist.g.hatena.ne.jp/edvakf/20110406/1302052515]を1.9系のRubyで使えるようにしたもの.
+RBat[http://rubyist.g.hatena.ne.jp/edvakf/20110406/1302052515] を1.9系のRubyで使えるようにしたもの.
 1.8系では使えません.
 
   ＃1.8系はオリジナルをそのまま使えば大丈夫 ;-)
