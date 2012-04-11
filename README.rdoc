@@ -15,6 +15,7 @@ RBat[http://rubyist.g.hatena.ne.jp/edvakf/20110406/1302052515] を1.9系のRuby�
 1. スタンドアローン化したいスクリプトのある場所にrbat.rbを置く.
 
 2. コマンドプロンプトから下記コマンドを実行する.
+
    > ruby -r./rbat ./your-script.rb
 
 3. ruby-distの中にファイルがコピーされているので, スクリプトと一緒に梱包すれば配布用ファイルのできあがり.
