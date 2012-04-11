@@ -5,8 +5,9 @@ See:: https://github.com/edvakf/RBat
 
 == これは何
 
-  RBat[http://rubyist.g.hatena.ne.jp/edvakf/20110406/1302052515]を1.9系のRubyで使えるようにしたもの.
-  1.8系では使えません.
+RBat[http://rubyist.g.hatena.ne.jp/edvakf/20110406/1302052515]を1.9系のRubyで使えるようにしたもの.
+1.8系では使えません.
+
   ＃1.8系はオリジナルをそのまま使えば大丈夫 ;-)
 
 == 使い方
@@ -20,33 +21,34 @@ See:: https://github.com/edvakf/RBat
 
 == 詳細
 
-  1.9.1から $LOADED_FEATURES がすべてフルパスになったので, $LOAD_PATH と組み合わせる必要がなくなりました.
-  http://doc.okkez.net/static/191/method/Kernel/m/require.html
+1.9.1から $LOADED_FEATURES がすべてフルパスになったので, $LOAD_PATH と組み合わせる必要がなくなりました.
+http://doc.okkez.net/static/191/method/Kernel/m/require.html
 
   "組み込み変数 $: に示されるパスを順番に探し、最初に見付かったファイルをロードします" ..
   "ロードした feature の名前を(拡張子も含めて)変数 $" に追加します"
 
-  だそうです.
-  「最初に見つかったファイル」としか書いてないですが、見つかった場所を含めたフルパスで
-  $LOADED_FEATURES に格納するという理解でよろしいのかな.
+だそうです.
+「最初に見つかったファイル」としか書いてないですが、見つかった場所を含めたフルパスで
+$LOADED_FEATURES に格納するという理解でよろしいのかな.
 
-  ここ見るとよさそう.
-  http://blade.nagaokaut.ac.jp/cgi-bin/scat.rb/ruby/ruby-dev/26079
+ここ見るとよさそう.
+http://blade.nagaokaut.ac.jp/cgi-bin/scat.rb/ruby/ruby-dev/26079
 
-  うっかり $LOADED_FEATURES を自分で変更したり(相対パスを追加しちゃったり)
-  すると上手く動かないと思われるので1.9.1以降では気をつけられたし.
+うっかり $LOADED_FEATURES を自分で変更したり(相対パスを追加しちゃったり)
+すると上手く動かないと思われるので1.9.1以降では気をつけられたし.
 
 == ライセンス
 
-  派生元の RBat に準拠して Ruby's ライセンスとしておきます.
-  たいした変更でもないのでぼくが弄った部分は MIT でもいいくらいである…….
+派生元の RBat に準拠して Ruby's ライセンスとしておきます.
+たいした変更でもないのでぼくが弄った部分は MIT でもいいくらいである…….
 
 == 編集者
 
-  aoitaku (http://twitter.com/aoitaku)
-  お気付きの点, ご意見など, 何かあればお気軽にご連絡ください.
+aoitaku (http://twitter.com/aoitaku)
+お気付きの点, ご意見など, 何かあればお気軽にご連絡ください.
+
   ＃対応するかどうかは気分次第 :-)
 
 == 謝辞
 
-  オリジナルのRBatの作成者である edvakf 氏 (http://twitter.com/edvakf) に大いに感謝します.
+オリジナルのRBatの作成者である edvakf 氏 (http://twitter.com/edvakf) に大いに感謝します.
