@@ -27,17 +27,11 @@ class RBat
   # before this method is called
   def collect_loaded_features
     @loaded_features = []
-    $LOADED_FEATURES.each {|file|
-      $LOAD_PATH.each {|dir|
-        file_path = File.join(dir, file)
-        if File.identical?(file_path, @me)
-          next
-        end
-        if File.file?(file_path)
-          @loaded_features << file_path
-          next
-        end
-      }
+    $LOADED_FEATURES.each { |file|
+      next if File.identical?(file, @me)
+      if File.file?(file)
+        @loaded_features << file
+      end
     }
   end
 
