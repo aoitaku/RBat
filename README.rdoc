@@ -22,7 +22,8 @@ RBat[http://rubyist.g.hatena.ne.jp/edvakf/20110406/1302052515] を1.9系のRuby�
 == 詳細
 
 1.9.1から $LOADED_FEATURES がすべてフルパスになったので, $LOAD_PATH と組み合わせる必要がなくなりました.
-http://doc.okkez.net/static/191/method/Kernel/m/require.html
+
+  http://doc.okkez.net/static/191/method/Kernel/m/require.html
 
   "組み込み変数 $: に示されるパスを順番に探し、最初に見付かったファイルをロードします"
   ...
@@ -33,7 +34,8 @@ http://doc.okkez.net/static/191/method/Kernel/m/require.html
 $LOADED_FEATURES に格納するという理解でよろしいのかな.
 
 ここ見るとよさそう.
-http://blade.nagaokaut.ac.jp/cgi-bin/scat.rb/ruby/ruby-dev/26079
+
+  http://blade.nagaokaut.ac.jp/cgi-bin/scat.rb/ruby/ruby-dev/26079
 
 うっかり $LOADED_FEATURES を自分で変更したり(相対パスを追加しちゃったり)
 すると上手く動かないと思われるので1.9.1以降では気をつけられたし.
@@ -41,11 +43,13 @@ http://blade.nagaokaut.ac.jp/cgi-bin/scat.rb/ruby/ruby-dev/26079
 == ライセンス
 
 派生元の RBat に準拠して Ruby's ライセンスとしておきます.
+
 たいした変更でもないのでぼくが弄った部分は MIT でもいいくらいである…….
 
 == 編集者
 
 aoitaku (http://twitter.com/aoitaku)
+
 お気付きの点, ご意見など, 何かあればお気軽にご連絡ください.
 
   ＃対応するかどうかは気分次第 :-)
