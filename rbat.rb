@@ -14,6 +14,7 @@ class RBat
 
     # it's a windows-only script anyway
     require 'Win32API'
+    require 'win32ole'
     require 'fileutils'
     require 'pathname'
     check_ruby
@@ -98,9 +99,18 @@ class RBat
       expand_path.relative_path_from(Pathname.new(@pwd)).to_s
     rel_script.gsub!(File::SEPARATOR, File::ALT_SEPARATOR) unless File::ALT_SEPARATOR.nil?
     # should change '/' to '\'?
-    open(bat, "w") {|file|
-      file.puts "#{new_ruby} #{rel_script} %*"
+    open(NEW_RUBY_DIR + '/' + bat, "w") {|file|
+      file.puts "start /B #{new_ruby} #{rel_script} %*"
     }
+    make_lnk(bat)
+  end
+  def make_lnk(bat)
+    lnk = WIN32OLE.new('WScript.Shell').createShortcut(File.basename(bat, '.bat') + '.lnk')
+    path = NEW_RUBY_DIR + '\\' + bat
+    lnk.targetPath = '%windir%/system32/rundll32.exe'
+    lnk.arguments = 'url.dll,FileProtocolHandler ' + %Q("#{path}")
+    lnk.windowStyle = 7
+    lnk.save
   end
 end
 
