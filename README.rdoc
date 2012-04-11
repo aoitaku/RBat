@@ -1,55 +1,52 @@
-= rbat.rb
+= RBat for r19x
 
-Authors::   edvakf (http://twitter.com/edvakf/)
-Version::   0.1
-Copyright:: Copyright (C) edvakf, 2011. All rights reserved
-License::   Distributed under the same license as Ruby
+Version:: 0.9
+See:: https://github.com/edvakf/RBat
 
-== What is?
+== これは何
 
-RBat makes distribution of ruby script to windows easier.
+  RBat[http://rubyist.g.hatena.ne.jp/edvakf/20110406/1302052515]を1.9系のRubyで使えるようにしたもの.
+  1.8系では使えません.
+  ＃1.8系はオリジナルをそのまま使えば大丈夫 ;-)
 
-RBat copies Ruby and all dependensies under current directory,
-and creates a batch file that executes a script.
+== 使い方
 
-In theory, the directory should be standalone, ie. running
-the batch file should run the ruby script on the Ruby under
-this directory.
+1. スタンドアローン化したいスクリプトのある場所にrbat.rbを置く.
 
-RBat is inspired a lot by Exerb.
+2. コマンドプロンプトから下記コマンドを実行する.
+   > ruby -r./rbat ./your-script.rb
 
-== Usage
+3. ruby-distの中にファイルがコピーされているので, スクリプトと一緒に梱包すれば配布用ファイルのできあがり.
 
-* Write your ruby script on Windows
-* Download rbat.rb on the directory of your script
-* Ruby your script with mswin or mingw Ruby (not cygwin)
-  requiring rbat.rb as follows
+== 詳細
 
-> /path/to/ruby -r./rbat ./your-script.rb
+  1.9.1から $LOADED_FEATURES がすべてフルパスになったので, $LOAD_PATH と組み合わせる必要がなくなりました.
+  http://doc.okkez.net/static/191/method/Kernel/m/require.html
 
-* This will create a directory called 'ruby-dist' and
-  copy ruby executable etc.
-  It also creates your-script.bat in the current directory.
+  "組み込み変数 $: に示されるパスを順番に探し、最初に見付かったファイルをロードします" ..
+  "ロードした feature の名前を(拡張子も含めて)変数 $" に追加します"
 
-== Limitations
+  だそうです.
+  「最初に見つかったファイル」としか書いてないですが、見つかった場所を含めたフルパスで
+  $LOADED_FEATURES に格納するという理解でよろしいのかな.
 
-Scripts that require rbconfig might not work properly.
+  ここ見るとよさそう.
+  http://blade.nagaokaut.ac.jp/cgi-bin/scat.rb/ruby/ruby-dev/26079
 
-At the moment, rbat copies ALL *.dll files in the same directory
-as Ruby executable, even unused ones. This is because there is
-no easy way to tell which dll is loaded by Ruby.
+  うっかり $LOADED_FEATURES を自分で変更したり(相対パスを追加しちゃったり)
+  すると上手く動かないと思われるので1.9.1以降では気をつけられたし.
 
-== dll.rb
+== ライセンス
 
-However, I created another library called dll.rb which is still
-not well tested at all, and might not work in other than
-my environment, but can lists all .dll and .so files that are
-loaded by the current Ruby program.
+  派生元の RBat に準拠して Ruby's ライセンスとしておきます.
+  たいした変更でもないのでぼくが弄った部分は MIT でもいいくらいである…….
 
-> /path/to/ruby -r./dll ./your-script.rb
+== 編集者
 
-The dlls which are in the same folder as Ruby itself are the
-ones that are used. Those that are not listed are the ones
-unused. If there are dlls that are in ruby-dist directory
-and are not listed here, then you can probably remove them.
+  aoitaku (http://twitter.com/aoitaku)
+  お気付きの点, ご意見など, 何かあればお気軽にご連絡ください.
+  ＃対応するかどうかは気分次第 :-)
 
+== 謝辞
+
+  オリジナルのRBatの作成者である edvakf 氏 (http://twitter.com/edvakf) に大いに感謝します.
